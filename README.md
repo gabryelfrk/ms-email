@@ -1,5 +1,3 @@
-- Microservice para envio de e-mail utilizando Spring Email e o servidor SMTP do Gmail.
-
 - Foi utilizado o padrão de bases isoladas.
 
 - Este serviço de envio de e-mail está preparado para trabalhar tanto de forma síncrona via HTTP REST, quanto de forma assíncrona com mensageria, utilizando o broker rabbitMQ.
