@@ -1,0 +1,30 @@
+package com.ms.email.controllers;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ms.email.dtos.EmailDTO;
+import com.ms.email.models.EmailModel;
+import com.ms.email.services.EmailService;
+
+@RestController
+public class EmailController {
+	
+	@Autowired
+	EmailService emailService;
+	
+	@PostMapping("/enviando-email")
+	public ResponseEntity<EmailModel> enviandoEmail(@RequestBody @Valid EmailDTO emailDTO) { // @Valid: fazer efeito nas validações do DTO
+		EmailModel emailModel = new EmailModel();  
+        BeanUtils.copyProperties(emailDTO, emailModel); // transforma o DTO em Model, para salvar salvar no BD
+        emailService.enviarEmail(emailModel);
+        return new ResponseEntity<>(emailModel, HttpStatus.CREATED);		
+	}
+}

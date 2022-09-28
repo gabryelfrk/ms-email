@@ -1,0 +1,18 @@
+package com.ms.email.dtos;
+
+import javax.validation.constraints.NotBlank;
+
+import lombok.Data;
+
+@Data
+public class EmailDTO {
+	
+	// ao ser enviado um POST para o envio do e-mail, ele precisa enviar estes atributos
+	
+    @NotBlank
+	private String ownerRef; // precisamos saber quem é o proprietario da msg
+    private String emailFrom;
+    private String emailTo;
+    private String subject;
+    private String text; 
+}

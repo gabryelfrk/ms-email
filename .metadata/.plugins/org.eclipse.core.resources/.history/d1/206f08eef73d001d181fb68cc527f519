@@ -1,0 +1,25 @@
+package com.ms.email.dtos;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+public class EmailDTO {
+	
+	// Atributos necessário para o envio do e-mail
+	
+    @NotBlank // retorna erro caso seja enviado vazio
+	private String ownerRef;
+    @NotBlank
+    @Email
+    private String emailFrom;
+    @NotBlank
+    @Email
+    private String emailTo;
+    @NotBlank
+    private String subject;
+    @NotBlank
+    private String text; 
+    
+    public EmailDTO() {
+    }
+}

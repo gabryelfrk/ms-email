@@ -1,0 +1,12 @@
+package com.ms.email.dtos;
+
+public class EmailDTO {
+	
+	// ao ser enviado um POST para o envio do e-mail, ele precisa enviar estes atributos
+	
+    private String ownerRef; 
+    private String emailFrom;
+    private String emailTo;
+    private String subject;
+    private String text; 
+}

@@ -1,0 +1,11 @@
+package com.ms.email.configs;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class RabbitMQConfig {
+	
+	@Value("${spring.rabbitmq.queue}")
+	private String queue;
+}

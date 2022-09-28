@@ -1,0 +1,44 @@
+- Microservice é uma aplicação que funciona de forma autônoma e independente;
+
+- Tem uma responsabilidade específica dentro de uma arquiterura;
+
+- E quando se trata de uma arquitetura de microserviços, essa arquitetura é composta por diversos serviços, cada qual com sua responsabilidade, trabalhando de forma  independente, porém se comunicando uns com os outros;
+-----------------------------------------------------------------------------------
+
+- padrão de bases isoladas: cada microservice tem sua própria base de dados;
+-----------------------------------------------------------------------------------
+
+Estilos de comunicação:
+
+- síncrona:
+pensar no protocolo HTTPS, pq esse protocolo envia uma requisição e obtém uma resposta. geralmente é utilizado o padrão REST;
+
+- assíncrona:
+pode utilizar a comunicação entre microserviços AMQP; 
+
+-----------------------------------------------------------------------------------
+
+mensageria é um conceito que define que sistemas distribuídos possam se comunica por meio de troca de mensagens (evento), sendo estas mensagens 'gerenciadas' por um Message Broker (servidor/módulo de mensagens).
+-----------------------------------------------------------------------------------
+
+Método POST: irá receber o DTO de entrada, fazer a validação e tbm vai passar do DTO para o model; desta forma irá salvar este model e tbm enviar o email;
+-----------------------------------------------------------------------------------
+
+service: camada intermediaria entre repository e controller;
+-----------------------------------------------------------------------------------
+
+Todos os microservices que precisarem fazer o envio de emails, vão poder se comunicar com este serviço via HTTP REST para processos síncronos, ou através da mensageria para processos assíncronos;
+-----------------------------------------------------------------------------------
+
+cloudAMPQ - rabbitMQ;
+
+Spring AMPQ;
+-----------------------------------------------------------------------------------
+
+consumer escuta a fila;
+-----------------------------------------------------------------------------------
+
+EmailModel:
+
+ownerRef: guardar o ID do usuário pra quem será enviado o e-mail *situação possível*: no caso de listar tds os e-mails enviados para tal usuário, filtro por este atributo;
+-----------------------------------------------------------------------------------
