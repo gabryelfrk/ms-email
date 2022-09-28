@@ -22,9 +22,9 @@ public class EmailController {
 	
 	@PostMapping("/enviando-email")
 	public ResponseEntity<EmailModel> enviandoEmail(@RequestBody @Valid EmailDTO emailDTO) { // @Valid: fazer efeito nas validações do DTO
-		EmailModel emailModel = new EmailModel();  
-        BeanUtils.copyProperties(emailDTO, emailModel); // transforma o DTO em Model, para salvar salvar no BD
-        emailService.enviarEmail(emailModel);
-        return new ResponseEntity<>(emailModel, HttpStatus.CREATED);		
+	    EmailModel emailModel = new EmailModel();  
+            BeanUtils.copyProperties(emailDTO, emailModel); // transforma o DTO em Model, para salvar salvar no BD
+            emailService.enviarEmail(emailModel);
+            return new ResponseEntity<>(emailModel, HttpStatus.CREATED);		
 	}
 }
